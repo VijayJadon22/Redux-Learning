@@ -1,13 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const counterSlice = createSlice({
+const initialState = {
+    value: 0,
+}
+
+const counterSlice = createSlice({
+    initialState,
     name: "counter",
-    initialState: 0,
     reducers: {
-        increment: (state) => state + 1,
-        decrement: (state) => state - 1,
+        increment: (state) => {
+            state.value++; // Directly mutating the state
+        },
+        decrement: (state) => {
+            state.value--; // Directly mutating the state
+        },
     }
 });
 
+
 export const { increment, decrement } = counterSlice.actions;
-export default counterSlice.reducer;
+
+export default counterSlice.reducer; 
